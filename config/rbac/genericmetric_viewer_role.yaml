@@ -1,0 +1,27 @@
+# permissions for end users to view genericmetrics.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: genericmetric-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: exascale-resource-controller
+    app.kubernetes.io/part-of: exascale-resource-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: genericmetric-viewer-role
+rules:
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - genericmetrics
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - genericmetrics/status
+  verbs:
+  - get

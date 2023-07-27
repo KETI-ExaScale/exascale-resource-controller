@@ -29,7 +29,7 @@ type GpuMetricSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of GpuMetric. Edit gpumetric_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	GPU string
 }
 
 // GpuMetricStatus defines the observed state of GpuMetric

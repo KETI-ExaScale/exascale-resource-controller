@@ -1,6 +1,7 @@
 domain: exascale.keti
 layout:
 - go.kubebuilder.io/v3
+multigroup: true
 plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
@@ -14,7 +15,7 @@ resources:
   domain: exascale.keti
   group: metric
   kind: GpuMetric
-  path: github.com/KETI-ExaScale/exascale-resource-controller/api/v1
+  path: github.com/KETI-ExaScale/exascale-resource-controller/api/metric/v1
   version: v1
 - api:
     crdVersion: v1
@@ -23,6 +24,24 @@ resources:
   domain: exascale.keti
   group: metric
   kind: GenericMetric
-  path: github.com/KETI-ExaScale/exascale-resource-controller/api/v1
+  path: github.com/KETI-ExaScale/exascale-resource-controller/api/metric/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: exascale.keti
+  group: cluster
+  kind: Cluster
+  path: github.com/KETI-ExaScale/exascale-resource-controller/apis/cluster/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: exascale.keti
+  group: cluster
+  kind: Node
+  path: github.com/KETI-ExaScale/exascale-resource-controller/apis/cluster/v1
   version: v1
 version: "3"

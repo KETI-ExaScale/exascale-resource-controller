@@ -2,4 +2,6 @@
 resources:
 - metric_v1_gpumetric.yaml
 - metric_v1_genericmetric.yaml
+- cluster_v1_cluster.yaml
+- cluster_v1_node.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

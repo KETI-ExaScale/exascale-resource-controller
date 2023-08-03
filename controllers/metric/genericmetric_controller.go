@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	metricv1 "github.com/KETI-ExaScale/exascale-resource-controller/api/v1"
+	metricv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/metric/v1"
 )
 
 // GenericMetricReconciler reconciles a GenericMetric object

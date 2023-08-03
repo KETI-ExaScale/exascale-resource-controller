@@ -31,8 +31,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	metricv1 "github.com/KETI-ExaScale/exascale-resource-controller/api/v1"
-	"github.com/KETI-ExaScale/exascale-resource-controller/controllers"
+	clusterv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/cluster/v1"
+	metricv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/metric/v1"
+	clustercontrollers "github.com/KETI-ExaScale/exascale-resource-controller/controllers/cluster"
+	metriccontrollers "github.com/KETI-ExaScale/exascale-resource-controller/controllers/metric"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -45,6 +47,7 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(metricv1.AddToScheme(scheme))
+	utilruntime.Must(clusterv1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 
@@ -89,18 +92,32 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.GpuMetricReconciler{
+	if err = (&metriccontrollers.GpuMetricReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "GpuMetric")
 		os.Exit(1)
 	}
-	if err = (&controllers.GenericMetricReconciler{
+	if err = (&metriccontrollers.GenericMetricReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "GenericMetric")
+		os.Exit(1)
+	}
+	if err = (&clustercontrollers.ClusterReconciler{
+		Client: mgr.GetClient(),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Cluster")
+		os.Exit(1)
+	}
+	if err = (&clustercontrollers.NodeReconciler{
+		Client: mgr.GetClient(),
+		Scheme: mgr.GetScheme(),
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "Node")
 		os.Exit(1)
 	}
 	//+kubebuilder:scaffold:builder

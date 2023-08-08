@@ -1,7 +1,7 @@
 ## Append samples you want in your CSV to this file as resources ##
 resources:
-- metric_v1_gpumetric.yaml
-- metric_v1_genericmetric.yaml
-- cluster_v1_cluster.yaml
-- cluster_v1_node.yaml
+- cloud_v1_cluster.yaml
+- cloud_v1_node.yaml
+- metric_v1_score.yaml
+- metric_v1_gpu.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

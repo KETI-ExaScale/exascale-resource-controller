@@ -1,12 +1,12 @@
-apiVersion: cluster.exascale.keti/v1
-kind: Cluster
+apiVersion: cloud.exascale.keti/v1
+kind: Node
 metadata:
   labels:
-    app.kubernetes.io/name: cluster
-    app.kubernetes.io/instance: cluster-sample
+    app.kubernetes.io/name: node
+    app.kubernetes.io/instance: node-sample
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: exascale-resource-controller
-  name: cluster-sample
+  name: node-sample
 spec:
   # TODO(user): Add fields here

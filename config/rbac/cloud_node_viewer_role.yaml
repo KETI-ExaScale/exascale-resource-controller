@@ -1,27 +1,27 @@
-# permissions for end users to view gpumetrics.
+# permissions for end users to view nodes.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: clusterrole
-    app.kubernetes.io/instance: gpumetric-viewer-role
+    app.kubernetes.io/instance: node-viewer-role
     app.kubernetes.io/component: rbac
     app.kubernetes.io/created-by: exascale-resource-controller
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
-  name: gpumetric-viewer-role
+  name: node-viewer-role
 rules:
 - apiGroups:
-  - metric.exascale.keti
+  - cloud.exascale.keti
   resources:
-  - gpumetrics
+  - nodes
   verbs:
   - get
   - list
   - watch
 - apiGroups:
-  - metric.exascale.keti
+  - cloud.exascale.keti
   resources:
-  - gpumetrics/status
+  - nodes/status
   verbs:
   - get

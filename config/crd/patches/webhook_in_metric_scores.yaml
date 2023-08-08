@@ -2,7 +2,7 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: gpumetrics.metric.exascale.keti
+  name: scores.metric.exascale.keti
 spec:
   conversion:
     strategy: Webhook

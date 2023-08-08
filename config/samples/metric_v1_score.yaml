@@ -1,12 +1,12 @@
 apiVersion: metric.exascale.keti/v1
-kind: GpuMetric
+kind: Score
 metadata:
   labels:
-    app.kubernetes.io/name: gpumetric
-    app.kubernetes.io/instance: gpumetric-sample
+    app.kubernetes.io/name: score
+    app.kubernetes.io/instance: score-sample
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: exascale-resource-controller
-  name: gpumetric-sample
+  name: score-sample
 spec:
   # TODO(user): Add fields here

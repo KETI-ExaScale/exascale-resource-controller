@@ -1,12 +1,12 @@
-apiVersion: metric.exascale.keti/v1
-kind: GenericMetric
+apiVersion: cloud.exascale.keti/v1
+kind: Cluster
 metadata:
   labels:
-    app.kubernetes.io/name: genericmetric
-    app.kubernetes.io/instance: genericmetric-sample
+    app.kubernetes.io/name: cluster
+    app.kubernetes.io/instance: cluster-sample
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: exascale-resource-controller
-  name: genericmetric-sample
+  name: cluster-sample
 spec:
   # TODO(user): Add fields here

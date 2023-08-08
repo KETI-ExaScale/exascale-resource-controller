@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package cluster
+package metric
 
 import (
 	"context"
@@ -24,29 +24,29 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	clusterv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/cluster/v1"
+	metricv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/metric/v1"
 )
 
-// NodeReconciler reconciles a Node object
-type NodeReconciler struct {
+// GPUReconciler reconciles a GPU object
+type GPUReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=cluster.exascale.keti,resources=nodes,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=cluster.exascale.keti,resources=nodes/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=cluster.exascale.keti,resources=nodes/finalizers,verbs=update
+//+kubebuilder:rbac:groups=metric.exascale.keti,resources=gpus,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=metric.exascale.keti,resources=gpus/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=metric.exascale.keti,resources=gpus/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
 // TODO(user): Modify the Reconcile function to compare the state specified by
-// the Node object against the actual cluster state, and then
+// the GPU object against the actual cluster state, and then
 // perform operations to make the cluster state reflect the state specified by
 // the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.13.0/pkg/reconcile
-func (r *NodeReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *GPUReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
@@ -55,8 +55,8 @@ func (r *NodeReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *NodeReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *GPUReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&clusterv1.Node{}).
+		For(&metricv1.GPU{}).
 		Complete(r)
 }

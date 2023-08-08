@@ -1,20 +1,20 @@
-# permissions for end users to edit nodes.
+# permissions for end users to edit gpus.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: clusterrole
-    app.kubernetes.io/instance: node-editor-role
+    app.kubernetes.io/instance: gpu-editor-role
     app.kubernetes.io/component: rbac
     app.kubernetes.io/created-by: exascale-resource-controller
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
-  name: node-editor-role
+  name: gpu-editor-role
 rules:
 - apiGroups:
-  - cluster.exascale.keti
+  - metric.exascale.keti
   resources:
-  - nodes
+  - gpus
   verbs:
   - create
   - delete
@@ -24,8 +24,8 @@ rules:
   - update
   - watch
 - apiGroups:
-  - cluster.exascale.keti
+  - metric.exascale.keti
   resources:
-  - nodes/status
+  - gpus/status
   verbs:
   - get

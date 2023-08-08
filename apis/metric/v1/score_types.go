@@ -23,17 +23,17 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// GpuMetricSpec defines the desired state of GpuMetric
-type GpuMetricSpec struct {
+// ScoreSpec defines the desired state of Score
+type ScoreSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of GpuMetric. Edit gpumetric_types.go to remove/update
-	GPU string
+	// Foo is an example field of Score. Edit score_types.go to remove/update
+	Foo string `json:"foo,omitempty"`
 }
 
-// GpuMetricStatus defines the observed state of GpuMetric
-type GpuMetricStatus struct {
+// ScoreStatus defines the observed state of Score
+type ScoreStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -41,24 +41,24 @@ type GpuMetricStatus struct {
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// GpuMetric is the Schema for the gpumetrics API
-type GpuMetric struct {
+// Score is the Schema for the scores API
+type Score struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   GpuMetricSpec   `json:"spec,omitempty"`
-	Status GpuMetricStatus `json:"status,omitempty"`
+	Spec   ScoreSpec   `json:"spec,omitempty"`
+	Status ScoreStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// GpuMetricList contains a list of GpuMetric
-type GpuMetricList struct {
+// ScoreList contains a list of Score
+type ScoreList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []GpuMetric `json:"items"`
+	Items           []Score `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&GpuMetric{}, &GpuMetricList{})
+	SchemeBuilder.Register(&Score{}, &ScoreList{})
 }

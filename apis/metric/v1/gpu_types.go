@@ -23,17 +23,17 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// GenericMetricSpec defines the desired state of GenericMetric
-type GenericMetricSpec struct {
+// GPUSpec defines the desired state of GPU
+type GPUSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of GenericMetric. Edit genericmetric_types.go to remove/update
+	// Foo is an example field of GPU. Edit gpu_types.go to remove/update
 	Foo string `json:"foo,omitempty"`
 }
 
-// GenericMetricStatus defines the observed state of GenericMetric
-type GenericMetricStatus struct {
+// GPUStatus defines the observed state of GPU
+type GPUStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 }
@@ -41,24 +41,24 @@ type GenericMetricStatus struct {
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
-// GenericMetric is the Schema for the genericmetrics API
-type GenericMetric struct {
+// GPU is the Schema for the gpus API
+type GPU struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   GenericMetricSpec   `json:"spec,omitempty"`
-	Status GenericMetricStatus `json:"status,omitempty"`
+	Spec   GPUSpec   `json:"spec,omitempty"`
+	Status GPUStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
 
-// GenericMetricList contains a list of GenericMetric
-type GenericMetricList struct {
+// GPUList contains a list of GPU
+type GPUList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []GenericMetric `json:"items"`
+	Items           []GPU `json:"items"`
 }
 
 func init() {
-	SchemeBuilder.Register(&GenericMetric{}, &GenericMetricList{})
+	SchemeBuilder.Register(&GPU{}, &GPUList{})
 }

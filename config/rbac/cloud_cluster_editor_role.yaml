@@ -1,20 +1,20 @@
-# permissions for end users to edit genericmetrics.
+# permissions for end users to edit clusters.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: clusterrole
-    app.kubernetes.io/instance: genericmetric-editor-role
+    app.kubernetes.io/instance: cluster-editor-role
     app.kubernetes.io/component: rbac
     app.kubernetes.io/created-by: exascale-resource-controller
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
-  name: genericmetric-editor-role
+  name: cluster-editor-role
 rules:
 - apiGroups:
-  - metric.exascale.keti
+  - cloud.exascale.keti
   resources:
-  - genericmetrics
+  - clusters
   verbs:
   - create
   - delete
@@ -24,8 +24,8 @@ rules:
   - update
   - watch
 - apiGroups:
-  - metric.exascale.keti
+  - cloud.exascale.keti
   resources:
-  - genericmetrics/status
+  - clusters/status
   verbs:
   - get

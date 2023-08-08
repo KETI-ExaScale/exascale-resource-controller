@@ -1,27 +1,27 @@
-# permissions for end users to view nodes.
+# permissions for end users to view clusters.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/name: clusterrole
-    app.kubernetes.io/instance: node-viewer-role
+    app.kubernetes.io/instance: cluster-viewer-role
     app.kubernetes.io/component: rbac
     app.kubernetes.io/created-by: exascale-resource-controller
     app.kubernetes.io/part-of: exascale-resource-controller
     app.kubernetes.io/managed-by: kustomize
-  name: node-viewer-role
+  name: cluster-viewer-role
 rules:
 - apiGroups:
-  - cluster.exascale.keti
+  - cloud.exascale.keti
   resources:
-  - nodes
+  - clusters
   verbs:
   - get
   - list
   - watch
 - apiGroups:
-  - cluster.exascale.keti
+  - cloud.exascale.keti
   resources:
-  - nodes/status
+  - clusters/status
   verbs:
   - get

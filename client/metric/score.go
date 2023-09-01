@@ -12,7 +12,7 @@ import (
 )
 
 type ScoreGetter interface {
-	Scores() GPUInterface
+	Scores() ScoreInterface
 }
 
 type ScoreInterface interface {

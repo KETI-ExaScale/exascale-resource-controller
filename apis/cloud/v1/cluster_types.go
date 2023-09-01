@@ -28,8 +28,11 @@ type ClusterSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Cluster. Edit cluster_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Host is a Cluster's master node host to reach keti module
+	Host       string `json:"host,omitempty"`
+	MasterNode string `json:"masterNode,omitempty"`
+	Nodes      string `json:"nodes,omitempty"`
+	TotalGPU   string `json:"totalGPU,omitempty"`
 }
 
 // ClusterStatus defines the observed state of Cluster

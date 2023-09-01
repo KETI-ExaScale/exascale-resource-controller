@@ -28,8 +28,10 @@ type GPUSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of GPU. Edit gpu_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// modelName is GPU's Model Name
+	ModelName string `json:"modelName,omitempty"`
+	// gpuID is GPU's real UUID
+	GPUID string `json:"gpuID,omitempty"`
 }
 
 // GPUStatus defines the observed state of GPU

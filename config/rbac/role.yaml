@@ -1,0 +1,111 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - cloud.exascale.keti
+  resources:
+  - clusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cloud.exascale.keti
+  resources:
+  - clusters/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - cloud.exascale.keti
+  resources:
+  - clusters/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - cloud.exascale.keti
+  resources:
+  - nodes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cloud.exascale.keti
+  resources:
+  - nodes/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - cloud.exascale.keti
+  resources:
+  - nodes/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - gpus
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - gpus/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - gpus/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - scores
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - scores/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - scores/status
+  verbs:
+  - get
+  - patch
+  - update

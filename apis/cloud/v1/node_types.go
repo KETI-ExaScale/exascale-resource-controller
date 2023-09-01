@@ -28,8 +28,11 @@ type NodeSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of Node. Edit node_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// cluster name is identify which cluster's node
+	ClusterName string         `json:"clusterName,omitempty"`
+	VirtualGPU  string         `json:"virtualGPU,omitempty"`
+	Age         string         `json:"age,omitempty"`
+	GpuPods     map[string]int `json:"gpuPods,omitempty"`
 }
 
 // NodeStatus defines the observed state of Node

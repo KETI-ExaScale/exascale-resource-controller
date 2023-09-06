@@ -41,10 +41,10 @@ func NewForConfig(c *rest.Config) (*ClientSet, error) {
 	return &cs, nil
 }
 
-func (c *ClientSet) Metric() metric.MetricV1Interface {
+func (c *ClientSet) MetricV1() metric.MetricV1Interface {
 	return c.metricV1
 }
 
-func (c *ClientSet) Cloud() cloud.CloudV1Interface {
+func (c *ClientSet) CloudV1() cloud.CloudV1Interface {
 	return c.cloudV1
 }

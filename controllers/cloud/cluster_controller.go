@@ -19,12 +19,10 @@ package cloud
 import (
 	"context"
 
+	cloudv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/cloud/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
-	"sigs.k8s.io/controller-runtime/pkg/log"
-
-	cloudv1 "github.com/KETI-ExaScale/exascale-resource-controller/apis/cloud/v1"
 )
 
 // ClusterReconciler reconciles a Cluster object
@@ -47,9 +45,27 @@ type ClusterReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.13.0/pkg/reconcile
 func (r *ClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
+	// MetricPort := ""
+	// _ = log.FromContext(ctx)
 
-	// TODO(user): your logic here
+	// currentCluster := &cloudv1.Cluster{}
+	// nodeList := corev1.NodeList{}
+
+	// err := r.Client.Get(ctx, req.NamespacedName, currentCluster)
+	// if err != nil {
+	// 	klog.Errorln(err)
+	// }
+
+	// err = r.Client.List(ctx, &nodeList)
+	// if err != nil {
+	// 	klog.Errorln(err)
+	// }
+
+	// for _, nodes := range nodeList.Items {
+
+	// }
+
+	// r.Client.Patch()
 
 	return ctrl.Result{}, nil
 }

@@ -10,7 +10,6 @@ repo: github.com/KETI-ExaScale/exascale-resource-controller
 resources:
 - api:
     crdVersion: v1
-    namespaced: false
   controller: true
   domain: exascale.keti
   group: cloud
@@ -19,7 +18,6 @@ resources:
   version: v1
 - api:
     crdVersion: v1
-    namespaced: false
   controller: true
   domain: exascale.keti
   group: cloud
@@ -28,7 +26,6 @@ resources:
   version: v1
 - api:
     crdVersion: v1
-    namespaced: false
   controller: true
   domain: exascale.keti
   group: metric
@@ -37,7 +34,6 @@ resources:
   version: v1
 - api:
     crdVersion: v1
-    namespaced: false
   controller: true
   domain: exascale.keti
   group: metric

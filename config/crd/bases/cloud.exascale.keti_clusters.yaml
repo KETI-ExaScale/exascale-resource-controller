@@ -41,7 +41,9 @@ spec:
               masterNode:
                 type: string
               nodes:
-                type: string
+                items:
+                  type: string
+                type: array
               totalGPU:
                 type: string
             type: object

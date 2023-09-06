@@ -29,10 +29,10 @@ type ClusterSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Host is a Cluster's master node host to reach keti module
-	Host       string `json:"host,omitempty"`
-	MasterNode string `json:"masterNode,omitempty"`
-	Nodes      string `json:"nodes,omitempty"`
-	TotalGPU   string `json:"totalGPU,omitempty"`
+	Host       string   `json:"host,omitempty"`
+	MasterNode string   `json:"masterNode,omitempty"`
+	Nodes      []string `json:"nodes,omitempty"`
+	TotalGPU   string   `json:"totalGPU,omitempty"`
 }
 
 // ClusterStatus defines the observed state of Cluster

@@ -4,4 +4,5 @@ resources:
 - cloud_v1_node.yaml
 - metric_v1_score.yaml
 - metric_v1_gpu.yaml
+- metric_v1_collector.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

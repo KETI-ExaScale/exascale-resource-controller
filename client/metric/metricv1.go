@@ -11,6 +11,7 @@ type MetricV1Interface interface {
 	RESTClient() rest.Interface
 	GPUGetter
 	ScoreGetter
+	CollectorGetter
 }
 
 type MetricV1Client struct {
@@ -45,4 +46,8 @@ func (c *MetricV1Client) GPUs() GPUInterface {
 
 func (c *MetricV1Client) Scores() ScoreInterface {
 	return newScores(c)
+}
+
+func (c *MetricV1Client) Collectors() CollectorInterface {
+	return newCollectors(c)
 }

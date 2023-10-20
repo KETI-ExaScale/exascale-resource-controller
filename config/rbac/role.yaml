@@ -60,6 +60,32 @@ rules:
 - apiGroups:
   - metric.exascale.keti
   resources:
+  - collectors
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - collectors/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - metric.exascale.keti
+  resources:
+  - collectors/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - metric.exascale.keti
+  resources:
   - gpus
   verbs:
   - create

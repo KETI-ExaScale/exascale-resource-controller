@@ -6,6 +6,7 @@ resources:
 - bases/cloud.exascale.keti_nodes.yaml
 - bases/metric.exascale.keti_scores.yaml
 - bases/metric.exascale.keti_gpus.yaml
+- bases/metric.exascale.keti_collectors.yaml
 #+kubebuilder:scaffold:crdkustomizeresource
 
 patchesStrategicMerge:
@@ -15,6 +16,7 @@ patchesStrategicMerge:
 #- patches/webhook_in_nodes.yaml
 #- patches/webhook_in_scores.yaml
 #- patches/webhook_in_gpus.yaml
+#- patches/webhook_in_collectors.yaml
 #+kubebuilder:scaffold:crdkustomizewebhookpatch
 
 # [CERTMANAGER] To enable cert-manager, uncomment all the sections with [CERTMANAGER] prefix.
@@ -23,6 +25,7 @@ patchesStrategicMerge:
 #- patches/cainjection_in_nodes.yaml
 #- patches/cainjection_in_scores.yaml
 #- patches/cainjection_in_gpus.yaml
+#- patches/cainjection_in_collectors.yaml
 #+kubebuilder:scaffold:crdkustomizecainjectionpatch
 
 # the following config is for teaching kustomize how to do kustomization for CRDs.
